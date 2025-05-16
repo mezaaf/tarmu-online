@@ -1,6 +1,24 @@
-import "@/styles/globals.css";
-import type { AppProps } from "next/app";
+import { type AppType } from "next/app";
 
-export default function App({ Component, pageProps }: AppProps) {
-  return <Component {...pageProps} />;
-}
+import "@/styles/globals.css";
+import { ThemeProvider } from "@/components/theme-provider";
+import { PageContainer } from "@/components/layouts/PageContainer";
+import { Toaster } from "@/components/ui/sonner";
+
+const MyApp: AppType = ({ Component, pageProps }) => {
+  return (
+    <ThemeProvider
+      attribute="class"
+      defaultTheme="light"
+      enableSystem
+      disableTransitionOnChange
+    >
+      <PageContainer>
+        <Component {...pageProps} />
+      </PageContainer>
+      <Toaster position="top-right" />
+    </ThemeProvider>
+  );
+};
+
+export default MyApp;
