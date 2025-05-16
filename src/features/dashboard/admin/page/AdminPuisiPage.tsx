@@ -1,12 +1,12 @@
 import React from "react";
 import AdminDashboardLayout from "../components/AdminDasboardLayout";
 
-const AdminDashboard = () => {
+const AdminPuisiPage = () => {
   return (
     <AdminDashboardLayout>
-      <h1>Admin</h1>
+      <h1>AdminPuisiPage</h1>
     </AdminDashboardLayout>
   );
 };
 
-export default AdminDashboard;
+export default AdminPuisiPage;
