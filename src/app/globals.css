@@ -4,6 +4,10 @@
 @custom-variant dark (&:is(.dark *));
 
 @theme inline {
+  --color-my-primary: var(--color1);
+  --color-my-accent: var(--color2);
+  --color-background: var(--color1);
+  --color-background: var(--color2);
   --color-background: var(--background);
   --color-foreground: var(--foreground);
   --font-sans: var(--font-geist-sans);
@@ -44,6 +48,8 @@
 }
 
 :root {
+  --color1: #09a144;
+  --color2: #02413e;
   --radius: 0.625rem;
   --card: oklch(1 0 0);
   --card-foreground: oklch(0.141 0.005 285.823);

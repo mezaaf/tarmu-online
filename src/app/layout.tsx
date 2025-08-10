@@ -1,5 +1,7 @@
+import { PageContainer } from "@/components/layouts/PageContainer";
 import { ThemeProvider } from "@/components/theme-provider";
 import type { Metadata } from "next";
+import { SessionProvider } from "next-auth/react";
 import { Geist } from "next/font/google";
 import "./globals.css";
 
@@ -21,14 +23,16 @@ export default function RootLayout({
   return (
     <html lang="en" suppressHydrationWarning>
       <body className={`${geistSans.className}  antialiased`}>
-        <ThemeProvider
-          attribute="class"
-          defaultTheme="system"
-          enableSystem
-          disableTransitionOnChange
-        >
-          {children}
-        </ThemeProvider>
+        <SessionProvider>
+          <ThemeProvider
+            attribute="class"
+            defaultTheme="light"
+            enableSystem
+            disableTransitionOnChange
+          >
+            <PageContainer>{children}</PageContainer>
+          </ThemeProvider>
+        </SessionProvider>
       </body>
     </html>
   );
