@@ -19,6 +19,7 @@ import { useSession } from "next-auth/react";
 import { Button } from "@/components/ui/button";
 import NavUser from "../NavUser";
 import ThemeToggle from "../ThemeToggle";
+import { SectionContainer } from "@/components/layouts/SectionContainer";
 
 const Navbar = () => {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -37,119 +38,132 @@ const Navbar = () => {
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
   }, [router]);
+
   return (
     <div
-      className={cn(
-        "fixed top-0 right-0 left-0 z-50 bg-background",
+      className={`sticky top-0 left-0 z-100 flex h-10 w-full items-center transition-shadow duration-300 md:h-18 bg-pondok-accent py-8  ${
         isScrolled &&
-          "bg-background/80 shadow-md backdrop-blur dark:shadow-white/20",
-      )}
+        "bg-pondok-accent shadow-md backdrop-blur dark:shadow-white/20"
+      }`}
     >
-      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-        <div className="flex h-16 items-center justify-between lg:h-20">
-          <div className="flex gap-4">
-            <div className="flex items-center space-x-2">
-              <Link href="/" className="flex items-center space-x-2">
-                <div className="flex h-8 w-8 items-center justify-center">
-                  <Image
-                    src={"/images/logos/logo-pondok1.png"}
-                    alt="logo"
-                    width={100}
-                    height={100}
-                  />
-                </div>
-                <span className="bg-gradient-to-r from-my-primary to-green-700 bg-clip-text text-xl font-bold text-transparent">
-                  Tarmu Online
-                </span>
-              </Link>
-            </div>
-            <NavigationMenu className="hidden items-center space-x-8 lg:flex">
-              <NavigationMenuList>
-                <NavigationMenuItem>
-                  <NavigationMenuLink
-                    asChild
-                    className={`${navigationMenuTriggerStyle()} ${
-                      pathname === "/" ? "text-my-primary" : ""
-                    }`}
-                  >
-                    <Link href="/">Beranda</Link>
-                  </NavigationMenuLink>
-                </NavigationMenuItem>
-                <NavigationMenuItem>
-                  <NavigationMenuLink
-                    asChild
-                    className={`${navigationMenuTriggerStyle()} ${
-                      pathname === "#" ? "text-my-primary" : ""
-                    }`}
-                  >
-                    <Link href="#">E-Da{"'"}wat</Link>
-                  </NavigationMenuLink>
-                </NavigationMenuItem>
-                {largeMenuItems.map((item, index) => {
-                  const isActive = item.children.some(
-                    (c) => c.href === pathname,
-                  );
-                  return (
-                    <NavigationMenuItem key={index}>
-                      <NavigationMenuTrigger
-                        className={isActive ? "text-my-primary" : ""}
-                      >
-                        {item.label}
-                      </NavigationMenuTrigger>
-                      <NavigationMenuContent>
-                        <ul className="grid w-[400px] gap-3 p-4 md:w-[500px] md:grid-cols-2 lg:w-[600px]">
-                          {item.children.map((child, childIndex) => (
-                            <ListItem
-                              key={childIndex}
-                              title={child.title}
-                              href={child.href}
-                              className={
-                                pathname === child.href ? "text-my-primary" : ""
-                              }
-                            >
-                              {child.description}
-                            </ListItem>
-                          ))}
-                        </ul>
-                      </NavigationMenuContent>
-                    </NavigationMenuItem>
-                  );
-                })}
-                <NavigationMenuItem>
-                  <NavigationMenuLink
-                    asChild
-                    className={`${navigationMenuTriggerStyle()} ${
-                      pathname === "/article" ? "text-my-primary" : ""
-                    }`}
-                  >
-                    <Link href="/article">Artikel</Link>
-                  </NavigationMenuLink>
-                </NavigationMenuItem>
-                {/* <NavigationMenuItem>
+      <SectionContainer
+        className="flex h-12 items-center justify-between lg:h-16 py-0!"
+        padded
+      >
+        <div className="flex gap-4">
+          <div className="flex items-center space-x-2">
+            <Link href="/" className="flex items-center space-x-2">
+              <div className="flex h-8 w-8 items-center justify-center">
+                <Image
+                  src={"/images/logos/logo-pondok1.png"}
+                  alt="logo"
+                  width={100}
+                  height={100}
+                />
+              </div>
+              <span className="text-xl font-bold text-pondok-text-light">
+                TarmuOnline.
+              </span>
+            </Link>
+          </div>
+          <NavigationMenu className="hidden items-center space-x-8 lg:flex">
+            <NavigationMenuList>
+              <NavigationMenuItem>
+                <NavigationMenuLink
+                  asChild
+                  className={`${navigationMenuTriggerStyle()} ${
+                    pathname === "/"
+                      ? "text-pondok-primary"
+                      : "text-pondok-text-light"
+                  }`}
+                >
+                  <Link href="/" className="">
+                    Beranda
+                  </Link>
+                </NavigationMenuLink>
+              </NavigationMenuItem>
+              <NavigationMenuItem>
+                <NavigationMenuLink
+                  asChild
+                  className={`${navigationMenuTriggerStyle()} ${
+                    pathname === "#"
+                      ? "text-pondok-primary"
+                      : "text-pondok-text-light"
+                  }`}
+                >
+                  <Link href="#">E-Da{"'"}wat</Link>
+                </NavigationMenuLink>
+              </NavigationMenuItem>
+              {largeMenuItems.map((item, index) => {
+                const isActive = item.children.some((c) => c.href === pathname);
+                return (
+                  <NavigationMenuItem key={index}>
+                    <NavigationMenuTrigger
+                      className={
+                        isActive
+                          ? "text-pondok-primary"
+                          : "text-pondok-text-light"
+                      }
+                    >
+                      {item.label}
+                    </NavigationMenuTrigger>
+                    <NavigationMenuContent>
+                      <ul className="grid w-[400px] gap-3 p-4 md:w-[500px] md:grid-cols-2 lg:w-[600px]">
+                        {item.children.map((child, childIndex) => (
+                          <ListItem
+                            key={childIndex}
+                            title={child.title}
+                            href={child.href}
+                            className={
+                              pathname === child.href
+                                ? "text-pondok-primary"
+                                : ""
+                            }
+                          >
+                            {child.description}
+                          </ListItem>
+                        ))}
+                      </ul>
+                    </NavigationMenuContent>
+                  </NavigationMenuItem>
+                );
+              })}
+              <NavigationMenuItem>
+                <NavigationMenuLink
+                  asChild
+                  className={`${navigationMenuTriggerStyle()} ${
+                    pathname === "/article"
+                      ? "text-pondok-primary"
+                      : "text-pondok-text-light"
+                  }`}
+                >
+                  <Link href="/article">Artikel</Link>
+                </NavigationMenuLink>
+              </NavigationMenuItem>
+              {/* <NavigationMenuItem>
                 <FeedbackDialog isMobile={false} />
               </NavigationMenuItem> */}
-              </NavigationMenuList>
-            </NavigationMenu>
-          </div>
-          <div className="hidden items-center gap-2 lg:flex">
-            <div className="flex items-center justify-center lg:gap-3">
-              {status === "loading" ? null : !user ? (
-                <Button
-                  onClick={() => router.push("/login")}
-                  size={"xs"}
-                  className="bg-my-primary hover:bg-my-primary/60 flex cursor-pointer items-center justify-center rounded-full py-3.5 text-white"
-                >
-                  Masuk
-                </Button>
-              ) : (
-                <NavUser />
-              )}
+            </NavigationMenuList>
+          </NavigationMenu>
+        </div>
+        <div className="items-center gap-2 flex">
+          <div className="flex items-center justify-center lg:gap-3">
+            {status === "loading" ? null : !user ? (
+              <Button
+                onClick={() => router.push("/login")}
+                size={"xs"}
+                className="bg-pondok-primary hover:bg-pondok-primary/60 flex cursor-pointer items-center justify-center rounded-full py-3.5 text-pondok-text-light"
+              >
+                Masuk
+              </Button>
+            ) : (
+              <NavUser />
+            )}
 
-              <ThemeToggle />
-            </div>
+            <ThemeToggle />
           </div>
         </div>
-      </div>
+      </SectionContainer>
     </div>
   );
 };

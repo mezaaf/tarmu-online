@@ -99,7 +99,7 @@ export function LoginForm({
                 />
                 <Button
                   type="submit"
-                  className="w-full cursor-pointer bg-my-primary hover:bg-my-primary/70"
+                  className="w-full cursor-pointer bg-pondok-primary hover:bg-pondok-primary/70"
                 >
                   Masuk
                 </Button>

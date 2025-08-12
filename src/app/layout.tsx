@@ -2,11 +2,11 @@ import { PageContainer } from "@/components/layouts/PageContainer";
 import { ThemeProvider } from "@/components/theme-provider";
 import type { Metadata } from "next";
 import { SessionProvider } from "next-auth/react";
-import { Geist } from "next/font/google";
+import { Poppins } from "next/font/google";
 import "./globals.css";
 
-const geistSans = Geist({
-  variable: "--font-geist-sans",
+const poppins = Poppins({
+  weight: ["100", "200", "300", "400", "500", "600", "700", "800", "900"],
   subsets: ["latin"],
 });
 
@@ -22,7 +22,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" suppressHydrationWarning>
-      <body className={`${geistSans.className}  antialiased`}>
+      <body className={`${poppins.className}  antialiased`}>
         <SessionProvider>
           <ThemeProvider
             attribute="class"

@@ -6,6 +6,7 @@ import React, { forwardRef } from "react";
 import { Toaster } from "sonner";
 import Navbar from "../fragments/Navbar";
 import ScrollToTop from "../fragments/ScrollToTop";
+import Footer from "../fragments/Footer";
 
 const disableNavbar = ["login", "admin"];
 
@@ -15,7 +16,7 @@ export const PageContainer = forwardRef<
 >(({ className, children, ...props }, ref) => {
   const pathname = usePathname();
   return (
-    <div className="flex h-full min-h-screen w-full flex-col">
+    <div className="flex h-full min-h-screen w-full flex-col bg-pondok-bg text-pondok-text-dark dark:text-pondok-text-light">
       {!disableNavbar.includes(pathname.split("/")[1] ?? "") && <Navbar />}
       <main
         ref={ref}
@@ -24,7 +25,7 @@ export const PageContainer = forwardRef<
       >
         {children}
       </main>
-      {/* {!disableNavbar.includes(pathname.split("/")[1] ?? "") && <Footer />} */}
+      {!disableNavbar.includes(pathname.split("/")[1] ?? "") && <Footer />}
       <Toaster richColors position="top-right" />
       <ScrollToTop />
     </div>
