@@ -18,9 +18,9 @@ export const largeMenuItems = [
         href: "/unit-pendidikan",
       },
       {
-        title: "Profil Pengasuh",
+        title: "Pengasuh",
         description: "Profil Pengasuh Pondok Pesantren Tarbiyatul Mutathowi'in",
-        href: "/profil-pengasuh",
+        href: "/pengasuh",
       },
     ],
   },
@@ -36,12 +36,12 @@ export const largeMenuItems = [
       {
         title: "Kegiatan",
         description: "Jadwal kegiatan santri di pondok pesantren.",
-        href: "#",
+        href: "/kegiatan",
       },
       {
         title: "Tata Tertib",
         description: "Tata tertib santri di pondok pesantren.",
-        href: "#",
+        href: "tata-tertib",
       },
     ],
   },
@@ -51,17 +51,17 @@ export const largeMenuItems = [
       {
         title: "Pendataan",
         description: "Sistem pendataan alumni pondok pesantren.",
-        href: "#",
+        href: "/pendataan-alumni",
       },
       {
         title: "Forum",
         description: "Forum alumni pondok pesantren.",
-        href: "#",
+        href: "/forum",
       },
       {
         title: "Donasi",
         description: "Sistem donasi pondok pesantren.",
-        href: "#",
+        href: "/donasi",
       },
     ],
   },

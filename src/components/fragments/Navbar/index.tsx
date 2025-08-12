@@ -20,6 +20,22 @@ import { Button } from "@/components/ui/button";
 import NavUser from "../NavUser";
 import ThemeToggle from "../ThemeToggle";
 import { SectionContainer } from "@/components/layouts/SectionContainer";
+import {
+  Drawer,
+  DrawerClose,
+  DrawerContent,
+  DrawerDescription,
+  DrawerTitle,
+  DrawerTrigger,
+} from "@/components/ui/drawer";
+import { Menu } from "lucide-react";
+import {
+  Accordion,
+  AccordionContent,
+  AccordionItem,
+  AccordionTrigger,
+} from "@/components/ui/accordion";
+import { smallMenuItems } from "./smallMenuItem";
 
 const Navbar = () => {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -86,12 +102,12 @@ const Navbar = () => {
                 <NavigationMenuLink
                   asChild
                   className={`${navigationMenuTriggerStyle()} ${
-                    pathname === "#"
+                    pathname === "/dawat"
                       ? "text-pondok-primary"
                       : "text-pondok-text-light"
                   }`}
                 >
-                  <Link href="#">E-Da{"'"}wat</Link>
+                  <Link href="/dawat">E-Da&apos;wat</Link>
                 </NavigationMenuLink>
               </NavigationMenuItem>
               {largeMenuItems.map((item, index) => {
@@ -146,7 +162,7 @@ const Navbar = () => {
             </NavigationMenuList>
           </NavigationMenu>
         </div>
-        <div className="items-center gap-2 flex">
+        <div className="hidden items-center gap-2 lg:flex">
           <div className="flex items-center justify-center lg:gap-3">
             {status === "loading" ? null : !user ? (
               <Button
@@ -159,9 +175,73 @@ const Navbar = () => {
             ) : (
               <NavUser />
             )}
-
             <ThemeToggle />
           </div>
+        </div>
+        <div className="flex w-full items-center justify-end gap-3 lg:hidden">
+          <ThemeToggle />
+          {status === "loading" ? null : !user ? null : <NavUser />}
+
+          <Drawer>
+            <DrawerTrigger
+              onClick={(e) => {
+                (e.currentTarget as HTMLElement).blur();
+              }}
+              className="text-pondok-text-light"
+            >
+              <Menu size={20} className="mouse-pointer" />
+            </DrawerTrigger>
+            <DrawerContent className="space-y-4 p-5">
+              <DrawerTitle>
+                <Link href={"/"} className="font-semibold">
+                  <DrawerClose>Beranda</DrawerClose>
+                </Link>
+              </DrawerTitle>
+              <DrawerDescription hidden />
+              <Link href={"/dawat"} className="font-semibold">
+                <DrawerClose>E-Da&apos;wat</DrawerClose>
+              </Link>
+              <Accordion type="single" collapsible>
+                {smallMenuItems.map((item, index) => (
+                  <AccordionItem
+                    value={`item-${index}`}
+                    key={index}
+                    className="border-none"
+                  >
+                    <AccordionTrigger className="hover: cursor-pointer py-2 text-base font-semibold hover:no-underline">
+                      {item.label}
+                    </AccordionTrigger>
+                    {item.children.map((child, childIndex) => (
+                      <AccordionContent key={childIndex}>
+                        <Link href={child.href}>
+                          <DrawerClose>{child.label}</DrawerClose>
+                        </Link>
+                      </AccordionContent>
+                    ))}
+                  </AccordionItem>
+                ))}
+              </Accordion>
+              <Link href={"/article"} className="font-semibold">
+                <DrawerClose>Artikel</DrawerClose>
+              </Link>
+              <Link href={"#"} className="font-semibold">
+                <DrawerClose>Warta</DrawerClose>
+              </Link>
+              {/* <FeedbackDialog isMobile /> */}
+              {status === "loading"
+                ? null
+                : !user && (
+                    <DrawerClose asChild className="flex items-start">
+                      <Link
+                        href={"/login"}
+                        className="bg-pondok-primary hover:bg-pondok-primary/60 flex cursor-pointer items-center justify-center rounded-full py-1 text-white"
+                      >
+                        Masuk
+                      </Link>
+                    </DrawerClose>
+                  )}
+            </DrawerContent>
+          </Drawer>
         </div>
       </SectionContainer>
     </div>
