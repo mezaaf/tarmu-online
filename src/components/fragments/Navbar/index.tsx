@@ -148,12 +148,12 @@ const Navbar = () => {
                 <NavigationMenuLink
                   asChild
                   className={`${navigationMenuTriggerStyle()} ${
-                    pathname === "/article"
+                    pathname === "/blog"
                       ? "text-pondok-primary"
                       : "text-pondok-text-light"
                   }`}
                 >
-                  <Link href="/article">Artikel</Link>
+                  <Link href="/blog">Artikel</Link>
                 </NavigationMenuLink>
               </NavigationMenuItem>
               {/* <NavigationMenuItem>
@@ -221,7 +221,7 @@ const Navbar = () => {
                   </AccordionItem>
                 ))}
               </Accordion>
-              <Link href={"/article"} className="font-semibold">
+              <Link href={"/blog"} className="font-semibold">
                 <DrawerClose>Artikel</DrawerClose>
               </Link>
               <Link href={"#"} className="font-semibold">

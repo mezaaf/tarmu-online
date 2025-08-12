@@ -4,7 +4,7 @@ import Image from "next/image";
 import { Button } from "../ui/button";
 import { ArrowRight } from "lucide-react";
 
-const ArticleCard = () => {
+const VerticalArticleCard = () => {
   return (
     <Card className="pt-0 border-none shadow-none bg-transparent group">
       <CardHeader className="px-0">
@@ -45,4 +45,4 @@ const ArticleCard = () => {
   );
 };
 
-export default ArticleCard;
+export default VerticalArticleCard;

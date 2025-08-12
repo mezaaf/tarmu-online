@@ -1,4 +1,4 @@
-import ArticleCard from "@/components/fragments/ArticleCard";
+import VerticalArticleCard from "@/components/fragments/VerticalArticleCard";
 import { SectionContainer } from "@/components/layouts/SectionContainer";
 import { Button } from "@/components/ui/button";
 import { ArrowRight } from "lucide-react";
@@ -14,9 +14,9 @@ const LatestBlogSection = () => {
         Baca Artikel & Berita Terbaru Kami
       </h1>
       <div className="grid grid-cols-1 sm:grid-cols-3 w-full gap-4 sm:gap-6 lg:gap-8">
-        <ArticleCard />
-        <ArticleCard />
-        <ArticleCard />
+        <VerticalArticleCard />
+        <VerticalArticleCard />
+        <VerticalArticleCard />
       </div>
       <Button
         size={"lg"}
