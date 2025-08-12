@@ -12,7 +12,7 @@ const TestimonialSection = async () => {
     >
       <p className="uppercase font-semibold text-pondok-primary">Testimonial</p>
       <h1 className="capitalize text-2xl sm:text-3xl lg:text-4xl text-center max-w-xl sm:max-w-2xl lg:max-w-3xl lg:leading-12">
-        Cerita dari mereka yang merasakan manfaat pendidikan kami.
+        Cerita dari mereka tentang kami.
       </h1>
       <AnimatedTestimonials testimonials={testimonials} />
     </SectionContainer>

@@ -1,4 +1,5 @@
 import CTASection from "./_components/CTASection";
+import FAQsSection from "./_components/FAQsSection";
 import HeroSection from "./_components/HeroSection";
 import LatestBlogSection from "./_components/LatestBlogSection";
 import OurMissionSection from "./_components/OurMissionSection";
@@ -16,6 +17,7 @@ export default function Home() {
       <CTASection />
       <TestimonialSection />
       <LatestBlogSection />
+      <FAQsSection />
     </>
   );
 }

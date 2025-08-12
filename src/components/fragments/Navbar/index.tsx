@@ -78,7 +78,7 @@ const Navbar = () => {
                 />
               </div>
               <span className="text-xl font-bold text-pondok-text-light">
-                TarmuOnline.
+                PondokNgujur.
               </span>
             </Link>
           </div>

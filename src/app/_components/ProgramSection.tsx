@@ -1,10 +1,11 @@
 import { SectionContainer } from "@/components/layouts/SectionContainer";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { GraduationCapIcon, LucideBookOpenText } from "lucide-react";
+import Image from "next/image";
 
 const ProgramSection = () => {
   return (
-    <div className="w-full bg-pondok-accent">
+    <div className="w-full bg-pondok-accent relative">
       <SectionContainer
         padded
         className="flex flex-col gap-4 sm:gap-6 lg:gap-8 items-center"
@@ -33,6 +34,24 @@ const ProgramSection = () => {
           ))}
         </div>
       </SectionContainer>
+      <div className="w-80 opacity-10 absolute bottom-0 right-0">
+        <Image
+          src={"/images/patern.png"}
+          alt="patern"
+          width={720}
+          height={1200}
+          className="w-full object-cover object-center"
+        />
+      </div>
+      <div className="w-80 opacity-10 absolute top-0 left-0 rotate-180">
+        <Image
+          src={"/images/patern.png"}
+          alt="patern"
+          width={720}
+          height={1200}
+          className="w-full object-cover object-center"
+        />
+      </div>
     </div>
   );
 };

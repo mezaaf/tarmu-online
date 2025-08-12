@@ -46,7 +46,7 @@ const OurMissionSection = () => {
         <h1 className="capitalize text-2xl sm:text-3xl lg:text-4xl max-w-xl sm:max-w-2xl lg:max-w-3xl lg:leading-12">
           Unggul membentuk generasi berakhlak mulia dan berilmu.
         </h1>
-        <ol className="list-disc flex flex-col gap-1 sm:gap-2 lg:gap-3 px-2 sm:px-3 lg:px-4">
+        <ol className="list-disc flex flex-col gap-1 sm:gap-2 lg:gap-3 px-6">
           <li>
             Menyelenggarakan pendidikan Islam berbasis Al-Qur&apos;an dan
             As-Sunnah yang terintegrasi dengan ilmu pengetahuan umum.
