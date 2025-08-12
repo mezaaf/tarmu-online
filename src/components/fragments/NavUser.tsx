@@ -8,7 +8,7 @@ import {
   PopoverTrigger,
 } from "@/components/ui/popover";
 import { getUserInitials } from "@/lib/utils";
-import { useRouter } from "next/navigation";
+import { useRouter } from "@bprogress/next/app";
 import {
   BookOpen,
   LayoutDashboard,

@@ -4,6 +4,7 @@ import type { Metadata } from "next";
 import { SessionProvider } from "next-auth/react";
 import { Poppins } from "next/font/google";
 import "./globals.css";
+import AppProvider from "./AppProvider";
 
 const poppins = Poppins({
   weight: ["100", "200", "300", "400", "500", "600", "700", "800", "900"],
@@ -30,7 +31,9 @@ export default function RootLayout({
             enableSystem
             disableTransitionOnChange
           >
-            <PageContainer>{children}</PageContainer>
+            <AppProvider>
+              <PageContainer>{children}</PageContainer>
+            </AppProvider>
           </ThemeProvider>
         </SessionProvider>
       </body>

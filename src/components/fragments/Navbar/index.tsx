@@ -29,12 +29,13 @@ import { Menu } from "lucide-react";
 import { useSession } from "next-auth/react";
 import Image from "next/image";
 import Link from "next/link";
-import { usePathname, useRouter } from "next/navigation";
+import { usePathname } from "next/navigation";
 import { forwardRef, useEffect, useState } from "react";
 import NavUser from "../NavUser";
 import ThemeToggle from "../ThemeToggle";
 import { largeMenuItems } from "./largeMenuItem";
 import { smallMenuItems } from "./smallMenuItem";
+import { useRouter } from "@bprogress/next/app";
 
 const Navbar = () => {
   const [isScrolled, setIsScrolled] = useState(false);
