@@ -172,6 +172,18 @@ const Navbar = () => {
               {/* <NavigationMenuItem>
                 <FeedbackDialog isMobile={false} />
               </NavigationMenuItem> */}
+              <NavigationMenuItem>
+                <NavigationMenuLink
+                  asChild
+                  className={`${navigationMenuTriggerStyle()} ${
+                    pathname === "/contact"
+                      ? "text-pondok-primary"
+                      : "text-pondok-text-light"
+                  }`}
+                >
+                  <Link href="/contact">Kontak</Link>
+                </NavigationMenuLink>
+              </NavigationMenuItem>
             </NavigationMenuList>
           </NavigationMenu>
         </div>
@@ -240,6 +252,9 @@ const Navbar = () => {
               </Link>
               <Link href={"#"} className="font-semibold">
                 <DrawerClose>Warta</DrawerClose>
+              </Link>
+              <Link href={"/contact"} className="font-semibold">
+                <DrawerClose>Kontak</DrawerClose>
               </Link>
               {/* <FeedbackDialog isMobile /> */}
               {status === "loading"

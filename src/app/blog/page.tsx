@@ -20,14 +20,13 @@ const ArticlePage = () => {
           padded
           className="flex flex-col gap-4 sm:gap-6 lg:gap-8 items-center justify-center"
         >
-          <p className="uppercase font-semibold text-pondok-primary">Blog</p>
+          <p className="uppercase font-semibold text-pondok-primary">
+            Artikel & Berita
+          </p>
           <h1 className="capitalize text-pondok-text-light text-2xl sm:text-3xl lg:text-4xl text-center max-w-xl sm:max-w-2xl lg:max-w-3xl lg:leading-12">
-            Artikel & Berita Kami
-          </h1>
-          <p className="text-pondok-text-light text-center max-w-2xl">
             Temukan cerita inspiratif, tren terbaru, dan gagasan yang mendorong
             perkembangan dunia pendidikan.
-          </p>
+          </h1>
         </SectionContainer>
       </div>
       <SectionContainer
