@@ -1,14 +1,5 @@
 export const smallMenuItems = [
   {
-    label: "Tentang",
-    children: [
-      { label: "Visi Misi", href: "/visi-misi" },
-      { label: "Sejarah", href: "/sejarah" },
-      { label: "Unit Pendidikan", href: "/unit-pendidikan" },
-      { label: "Pengasuh", href: "/pengasuh" },
-    ],
-  },
-  {
     label: "E-Santri",
     children: [
       { label: "Pendaftaran", href: "/psb" },

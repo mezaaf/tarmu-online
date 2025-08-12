@@ -1,5 +1,20 @@
 "use client";
 
+import { SectionContainer } from "@/components/layouts/SectionContainer";
+import {
+  Accordion,
+  AccordionContent,
+  AccordionItem,
+  AccordionTrigger,
+} from "@/components/ui/accordion";
+import { Button } from "@/components/ui/button";
+import {
+  Drawer,
+  DrawerClose,
+  DrawerContent,
+  DrawerTitle,
+  DrawerTrigger,
+} from "@/components/ui/drawer";
 import {
   NavigationMenu,
   NavigationMenuContent,
@@ -10,31 +25,15 @@ import {
   navigationMenuTriggerStyle,
 } from "@/components/ui/navigation-menu";
 import { cn } from "@/lib/utils";
+import { Menu } from "lucide-react";
+import { useSession } from "next-auth/react";
 import Image from "next/image";
 import Link from "next/link";
 import { usePathname, useRouter } from "next/navigation";
 import { forwardRef, useEffect, useState } from "react";
-import { largeMenuItems } from "./largeMenuItem";
-import { useSession } from "next-auth/react";
-import { Button } from "@/components/ui/button";
 import NavUser from "../NavUser";
 import ThemeToggle from "../ThemeToggle";
-import { SectionContainer } from "@/components/layouts/SectionContainer";
-import {
-  Drawer,
-  DrawerClose,
-  DrawerContent,
-  DrawerDescription,
-  DrawerTitle,
-  DrawerTrigger,
-} from "@/components/ui/drawer";
-import { Menu } from "lucide-react";
-import {
-  Accordion,
-  AccordionContent,
-  AccordionItem,
-  AccordionTrigger,
-} from "@/components/ui/accordion";
+import { largeMenuItems } from "./largeMenuItem";
 import { smallMenuItems } from "./smallMenuItem";
 
 const Navbar = () => {
@@ -96,6 +95,19 @@ const Navbar = () => {
                   <Link href="/" className="">
                     Beranda
                   </Link>
+                </NavigationMenuLink>
+              </NavigationMenuItem>
+
+              <NavigationMenuItem>
+                <NavigationMenuLink
+                  asChild
+                  className={`${navigationMenuTriggerStyle()} ${
+                    pathname === "/about"
+                      ? "text-pondok-primary"
+                      : "text-pondok-text-light"
+                  }`}
+                >
+                  <Link href="/about">Tentang Kami</Link>
                 </NavigationMenuLink>
               </NavigationMenuItem>
               <NavigationMenuItem>
@@ -192,12 +204,13 @@ const Navbar = () => {
               <Menu size={20} className="mouse-pointer" />
             </DrawerTrigger>
             <DrawerContent className="space-y-4 p-5">
-              <DrawerTitle>
-                <Link href={"/"} className="font-semibold">
-                  <DrawerClose>Beranda</DrawerClose>
-                </Link>
-              </DrawerTitle>
-              <DrawerDescription hidden />
+              <DrawerTitle />
+              <Link href={"/"} className="font-semibold">
+                <DrawerClose>Beranda</DrawerClose>
+              </Link>
+              <Link href={"/about"} className="font-semibold">
+                <DrawerClose>Tentang Kami</DrawerClose>
+              </Link>
               <Link href={"/dawat"} className="font-semibold">
                 <DrawerClose>E-Da&apos;wat</DrawerClose>
               </Link>
